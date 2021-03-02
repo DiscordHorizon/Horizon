@@ -18,6 +18,7 @@ setInterval(botPresence, 7000);
 //* bot ready
 bot.on('ready', () => {
     await bot.user.setPresence({ activity: { name: `Seja bem vindo ao Horizon!!`, type: 1, url: 'https://twitch.tv/bravanzin' }});
+    members(bot.guilds.cache.get(process.env.GUILD));
     console.log('[Bot] Connected');
 });
 

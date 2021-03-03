@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const { config } = require('./config');
-const { members } = require('./include/members');
+const { users } = require('./include/users');
 const { welcome } = require('./include/welcome');
 const { userConnection, showTasks, addTask, removeTask } = require('./controller/user');
 
@@ -21,18 +21,18 @@ setInterval(botPresence, 7000);
 //* bot ready
 bot.on('ready', async () => {
     await bot.user.setPresence({ activity: { name: `Seja bem vindo ao Horizon!!`, type: 1, url: 'https://twitch.tv/bravanzin' }});
-    members(bot.guilds.cache.get(config.channels.guild));
+    users(bot.guilds.cache.get(config.channels.guild));
     console.log('[Bot] Connected');
 });
 
 //* member count update
 bot.on('guildMemberAdd', user => {
-    members(user.guild);
+    users(user.guild);
     welcome(user);
 });
 
 bot.on('guildMemberRemove', user => {
-    members(user.guild);
+    users(user.guild);
 });
 
 //* voice connection

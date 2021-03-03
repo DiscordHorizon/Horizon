@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const { config } = require("./config");
 const { users } = require("./include/users");
+const { voiceRole } = require('./include/voice');
 const { welcome } = require("./include/welcome");
 const {
     userConnection,
@@ -62,6 +63,7 @@ bot.on("guildMemberRemove", (user) => {
 
 //* voice connection
 bot.on("voiceStateUpdate", (oldState, newState) => {
+    voiceRole(newState);
     userConnection(newState);
 });
 

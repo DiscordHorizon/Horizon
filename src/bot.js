@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const { config } = require('./config');
 const { members } = require('./include/members');
 const { welcome } = require('./include/welcome');
-const { userConnection, showTasks, newTask, removeTask } = require('./controller/user');
+const { userConnection, showTasks, addTask, removeTask } = require('./controller/user');
 
 const bot = new Discord.Client();
 
@@ -48,7 +48,7 @@ bot.on('message', message => {
     if (id === config.channels.tasks.tasks) {
         showTasks(message);
     } else if (id === config.channels.tasks.add) {
-        newTask(message);
+        addTask(message);
     } else if (id === config.channels.tasks.remove) {
         removeTask(message);
     }

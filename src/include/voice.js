@@ -9,13 +9,13 @@ module.exports = {
             const voiceRole = newState.guild.roles.cache.find(
                 roles => roles.name === channel.name
             );
-            state.guild.members.cache.get(userId).roles.add(voiceRole);
+            newState.guild.members.cache.get(userId).roles.add(voiceRole);
         } else {
             const channel = oldState.guild.channels.cache.get(oldChannel);
             const voiceRole = oldState.guild.roles.cache.find(
                 roles => roles.name === channel.name
             );
-            state.guild.members.cache.get(userId).roles.add(voiceRole);
+            oldState.guild.members.cache.get(userId).roles.add(voiceRole);
         }
     }
 }

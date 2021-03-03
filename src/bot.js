@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { members } = require('./include/members');
+const { welcome } = require('./include/welcome');
 
 const bot = new Discord.Client();
 
@@ -25,6 +26,7 @@ bot.on('ready', async () => {
 //* member count update
 bot.on('guildMemberAdd', user => {
     members(user.guild);
+    welcome(user);
 });
 
 bot.on('guildMemberRemove', user => {

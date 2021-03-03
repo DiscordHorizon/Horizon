@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const { members } = require('./include/members');
 const { welcome } = require('./include/welcome');
-const { userConnection } = require('./controller/user');
+const { userConnection, showTasks, newTask, removeTask } = require('./controller/user');
 
 const bot = new Discord.Client();
 
@@ -38,5 +38,17 @@ bot.on('guildMemberRemove', user => {
 bot.on('voiceStateUpdate', (oldState, newState) => {
     userConnection(newState);
 });
+
+bot.on('message', message => {
+    const id = message.channel.id;
+    if (message.author.bot) return;
+    if (message.channel.type === "dm") return;
+
+    if (id === process.env.NEW) {
+        newTask(message);
+    } else if (id === process.env.REMOVE) {
+        removeTask(message);
+    }
+})
 
 bot.login(process.env.DISCORD_TOKEN);

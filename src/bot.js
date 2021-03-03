@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const { config } = require('./config');
 const { members } = require('./include/members');
 const { welcome } = require('./include/welcome');
 const { userConnection, showTasks, newTask, removeTask } = require('./controller/user');
@@ -20,7 +21,7 @@ setInterval(botPresence, 7000);
 //* bot ready
 bot.on('ready', async () => {
     await bot.user.setPresence({ activity: { name: `Seja bem vindo ao Horizon!!`, type: 1, url: 'https://twitch.tv/bravanzin' }});
-    members(bot.guilds.cache.get(process.env.GUILD));
+    members(bot.guilds.cache.get(config.channels.guild));
     console.log('[Bot] Connected');
 });
 
@@ -44,13 +45,13 @@ bot.on('message', message => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;
 
-    if (id === process.env.TASKS) {
+    if (id === config.channels.tasks.tasks) {
         showTasks(message);
-    } else if (id === process.env.NEW) {
+    } else if (id === config.channels.tasks.add) {
         newTask(message);
-    } else if (id === process.env.REMOVE) {
+    } else if (id === config.channels.tasks.remove) {
         removeTask(message);
     }
 })
 
-bot.login(process.env.DISCORD_TOKEN);
+bot.login(config.tokens.discord);

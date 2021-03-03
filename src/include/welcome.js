@@ -10,10 +10,10 @@ module.exports = {
         const ctx = canvas.getContext('2d');
 
         // * add fonte
-        Canvas.registerFont("assets/SansitaSwashed.ttf", { family: 'Sansita Swashed' });
+        Canvas.registerFont("src/assets/SansitaSwashed.ttf", { family: 'Sansita Swashed' });
 
         // * background
-        const background = await Canvas.loadImage('./assets/background.jpg');
+        const background = await Canvas.loadImage('./src/assets/background.jpg');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
         // * sombra

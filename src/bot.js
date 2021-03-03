@@ -112,6 +112,7 @@ bot.on("messageReactionAdd", async (reaction, user) => {
 });
 
 bot.on("messageReactionRemove", async (reaction, user) => {
+    const id = reaction.message.id;
     const roles = reaction.message.guild.roles.cache;
     const members = reaction.message.guild.members.cache;
 

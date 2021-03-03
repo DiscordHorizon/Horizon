@@ -21,5 +21,8 @@ exports.config = {
             add: config ? config.channels.tasks.add : process.env.ADD,
             remove: config ? config.channels.tasks.remove : process.env.REMOVE,
         }
+    },
+    check: {
+        rules: config ? config.check.rules : process.env.C_RULES
     }
 }

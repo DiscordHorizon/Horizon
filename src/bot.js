@@ -29,6 +29,15 @@ bot.on('guildMemberAdd', user => {
 
 bot.on('guildMemberRemove', user => {
     members(user.guild);
-})
+});
+
+//* voice connection
+bot.on('voiceStateUpdate', (oldState, newState) => {
+    if(newState.channel != null) {
+        console.log('usuario entrou em um canal de voz');
+    } else {
+        console.log('usuario saiu de um canal de voz')
+    }
+});
 
 bot.login(process.env.DISCORD_TOKEN);

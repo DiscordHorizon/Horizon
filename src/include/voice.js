@@ -1,5 +1,5 @@
 module.exports = {
-    async voiceRole(oldState, newstate) {
+    async voiceRole(oldState, newState) {
         const userId = newState.id;
         const oldChannel = oldState.channelID
         const newChannel = newState.channelID;

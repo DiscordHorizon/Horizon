@@ -1,6 +1,6 @@
 const userModel = require('../models/user');
 
-async function userVerify(userId, name) {
+async function userVerify(userId) {
     const req = await userModel.findOne({ id: userId });
 
     if (!req) {
@@ -17,5 +17,17 @@ async function userVerify(userId, name) {
 };
 
 module.exports = {
-    
+    async userConnection(state) {
+        const user = await userVerify(state.id);
+        var time;
+
+        if (state.channelID) {
+            await user.updateOne({ lastConnection: Date.now() });
+        } else {
+            time = Date.now() - user.lastConnection;
+            await user.updateOne({
+                accumulatedTime: user.accumulatedTime + time,
+            });
+        }
+    }
 };

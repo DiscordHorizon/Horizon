@@ -15,7 +15,7 @@ module.exports = {
             const voiceRole = oldState.guild.roles.cache.find(
                 roles => roles.name === channel.name
             );
-            oldState.guild.members.cache.get(userId).roles.add(voiceRole);
+            oldState.guild.members.cache.get(userId).roles.remove(voiceRole);
         }
     }
 }

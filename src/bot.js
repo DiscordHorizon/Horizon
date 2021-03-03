@@ -44,7 +44,9 @@ bot.on('message', message => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;
 
-    if (id === process.env.NEW) {
+    if (id === process.env.TASKS) {
+        showTasks(message);
+    } else if (id === process.env.NEW) {
         newTask(message);
     } else if (id === process.env.REMOVE) {
         removeTask(message);

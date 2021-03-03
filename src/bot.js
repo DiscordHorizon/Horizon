@@ -63,7 +63,7 @@ bot.on("guildMemberRemove", (user) => {
 
 //* voice connection
 bot.on("voiceStateUpdate", (oldState, newState) => {
-    voiceRole(newState);
+    voiceRole(oldState, newState);
     userConnection(newState);
 });
 

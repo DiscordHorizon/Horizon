@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+const { config } = require('../config');
 
 mongoose
-    .connect(process.env.MONGO_URI, {
+    .connect(config.tokens.mongoUri, {
         useUnifiedTopology: true,
         useNewUrlParser: true,
         useFindAndModify: false,

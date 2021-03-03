@@ -83,14 +83,30 @@ bot.on("message", (message) => {
 
 //* reaction role check
 bot.on("messageReactionAdd", async (reaction, user) => {
+    const id = reaction.message.id;
     const roles = reaction.message.guild.roles.cache;
     const members = reaction.message.guild.members.cache;
 
     if (reaction.partial) await reaction.fetch();
 
-    //* add "Horizon" role
-    if (reaction.message.id === config.check.rules) {
+    //* "Horizon" role
+    if (id === config.check.rules) {
         const role = roles.find((role) => role.name === "Horizon member");
+        members.get(user.id).roles.add(role);
+    };
+    //* "Valorant" role
+    if (id === config.check.games.valorant) {
+        const role = roles.find((role) => role.name === "Valorant");
+        members.get(user.id).roles.add(role);
+    }
+    //* "League of Legends" role
+    if (id === config.check.games.leagueoflegends) {
+        const role = roles.find((role) => role.name === "League of Legends");
+        members.get(user.id).roles.add(role);
+    }
+    //* "Ragnarok" role
+    if (id === config.check.games.ragnarok) {
+        const role = roles.find((role) => role.name === "Ragnarok");
         members.get(user.id).roles.add(role);
     }
 });

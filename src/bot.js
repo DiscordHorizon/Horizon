@@ -90,7 +90,7 @@ bot.on("messageReactionAdd", async (reaction, user) => {
 
     //* add "Horizon" role
     if (reaction.message.id === config.check.rules) {
-        const role = roles.find((role) => role.name === "Horizon");
+        const role = roles.find((role) => role.name === "Horizon member");
         members.get(user.id).roles.add(role);
     }
 });
@@ -103,7 +103,7 @@ bot.on("messageReactionRemove", async (reaction, user) => {
 
     //* remove "Horizon" role
     if (reaction.message.id === config.check.rules) {
-        const role = roles.find((role) => role.name === "Horizon");
+        const role = roles.find((role) => role.name === "Horizon member");
         members.get(user.id).roles.remove(role);
     }
 });

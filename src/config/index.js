@@ -1,14 +1,14 @@
 let config;
 try {
-    config = require('../../config.json');
+    config = require("../../config.json");
 } catch (error) {
     config = null;
-};
+}
 
 exports.config = {
     tokens: {
         discord: config ? config.discord : process.env.DISCORD_TOKEN,
-        mongoUri: config ? config.mongo : process.env.MONGO_URI
+        mongoUri: config ? config.mongo : process.env.MONGO_URI,
     },
     channels: {
         guild: config ? config.channels.guild : process.env.GUILD,
@@ -20,15 +20,16 @@ exports.config = {
             tasks: config ? config.channels.tasks.tasks : process.env.TASKS,
             add: config ? config.channels.tasks.add : process.env.ADD,
             remove: config ? config.channels.tasks.remove : process.env.REMOVE,
-        }
+        },
     },
     check: {
         rules: config ? config.check.rules : process.env.C_RULES,
-        games: config ? config.check.games : process.env.C_GAMES
+        games: {
+            valorant: config ? config.games.valorant : process.env.VALORANT,
+            leagueoflegends: config
+                ? config.games.leagueoflegends
+                : process.env.LEAGUEOFLEGENDS,
+            ragnarok: config ? config.games.ragnarok : process.env.RAGNAROK,
+        },
     },
-    games: {
-        valorant: config ? config.games.valorant : process.env.VALORANT,
-        leagueoflegends: config ? config.games.leagueoflegends : process.env.LEAGUEOFLEGENDS,
-        ragnarok: config ? config.games.ragnarok : process.env.RAGNAROK
-    }
-}
+};

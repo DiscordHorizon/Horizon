@@ -23,6 +23,12 @@ exports.config = {
         }
     },
     check: {
-        rules: config ? config.check.rules : process.env.C_RULES
+        rules: config ? config.check.rules : process.env.C_RULES,
+        games: config ? config.check.games : process.env.C_GAMES
+    },
+    games: {
+        valorant: config ? config.games.valorant : process.env.VALORANT,
+        leagueoflegends: config ? config.games.leagueoflegends : process.env.LEAGUEOFLEGENDS,
+        ragnarok: config ? config.games.ragnarok : process.env.RAGNAROK
     }
 }

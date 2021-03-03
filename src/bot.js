@@ -81,7 +81,7 @@ bot.on("message", (message) => {
     }
 });
 
-//* reaction role check
+//* reaction add role check
 bot.on("messageReactionAdd", async (reaction, user) => {
     const id = reaction.message.id;
     const roles = reaction.message.guild.roles.cache;
@@ -111,6 +111,7 @@ bot.on("messageReactionAdd", async (reaction, user) => {
     };
 });
 
+//* reaction remove role check
 bot.on("messageReactionRemove", async (reaction, user) => {
     const id = reaction.message.id;
     const roles = reaction.message.guild.roles.cache;

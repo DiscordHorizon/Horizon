@@ -16,6 +16,12 @@ module.exports = {
         const background = await Canvas.loadImage('./src/assets/background.jpg');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
+        // * background dark
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+        ctx.fillRect(0, 0, 1920, 1080);
+        ctx.stroke();
+
         // * sombra
         ctx.beginPath();
         ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
@@ -30,7 +36,7 @@ module.exports = {
         ctx.stroke();
         
         // * boas vindas e user
-        ctx.fillStyle = 'rgb(48, 55, 101)';
+        ctx.fillStyle = 'rgb(110,46,255)';
         ctx.strokeStyle = 'rgb(255, 255, 255)';
         ctx.lineWidth = 20;
         ctx.textAlign = 'center';

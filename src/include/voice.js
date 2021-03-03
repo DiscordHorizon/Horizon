@@ -6,7 +6,7 @@ module.exports = {
 
         if(newChannel) {
             const channel = newState.guild.channels.cache.get(newChannel);
-            const voiceRole = newChannel.guild.roles.cache.find(
+            const voiceRole = newState.guild.roles.cache.find(
                 roles => roles.name === channel.name
             );
             state.guild.members.cache.get(userId).roles.add(voiceRole);

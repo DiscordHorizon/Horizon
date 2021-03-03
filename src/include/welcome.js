@@ -1,9 +1,10 @@
 const { MessageAttachment } = require('discord.js');
+const { config } = require('../config');
 const Canvas = require('canvas');
 
 module.exports = {
     async welcome(member) {
-        const channel = member.guild.channels.cache.find(channel => channel.id === process.env.WELCOME);
+        const channel = member.guild.channels.cache.find(channel => channel.id === config.channels.welcome);
         if (!channel) return;
         
         const canvas = Canvas.createCanvas(1920, 1080);
@@ -57,6 +58,6 @@ module.exports = {
 
         const attachment = new MessageAttachment(canvas.toBuffer(), "welcome-image.png");
 
-        channel.send(`Bem vindo(a) ao Horizon! ${member.user}, confira o canal <#${process.env.RULES}> para obter mais informações!`, attachment);
+        channel.send(`Bem vindo(a) ao Horizon! ${member.user}, confira o canal <#${config.channels.rules}> para obter mais informações!`, attachment);
     }
 }

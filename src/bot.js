@@ -98,17 +98,17 @@ bot.on("messageReactionAdd", async (reaction, user) => {
     if (id === config.check.games.valorant) {
         const role = roles.find((role) => role.name === "Valorant");
         members.get(user.id).roles.add(role);
-    }
+    };
     //* "League of Legends" role
     if (id === config.check.games.leagueoflegends) {
         const role = roles.find((role) => role.name === "League of Legends");
         members.get(user.id).roles.add(role);
-    }
+    };
     //* "Ragnarok" role
     if (id === config.check.games.ragnarok) {
         const role = roles.find((role) => role.name === "Ragnarok");
         members.get(user.id).roles.add(role);
-    }
+    };
 });
 
 bot.on("messageReactionRemove", async (reaction, user) => {
@@ -117,11 +117,26 @@ bot.on("messageReactionRemove", async (reaction, user) => {
 
     if (reaction.partial) await reaction.fetch();
 
-    //* remove "Horizon" role
+    //* "Horizon" role
     if (reaction.message.id === config.check.rules) {
         const role = roles.find((role) => role.name === "Horizon member");
         members.get(user.id).roles.remove(role);
-    }
+    };
+    //* "Valorant" role
+    if (id === config.check.games.valorant) {
+        const role = roles.find((role) => role.name === "Valorant");
+        members.get(user.id).roles.remove(role);
+    };
+    //* "League of Legends" role
+    if (id === config.check.games.leagueoflegends) {
+        const role = roles.find((role) => role.name === "League of Legends");
+        members.get(user.id).roles.remove(role);
+    };
+    //* "Ragnarok" role
+    if (id === config.check.games.ragnarok) {
+        const role = roles.find((role) => role.name === "Ragnarok");
+        members.get(user.id).roles.remove(role);
+    };
 });
 
 bot.login(config.tokens.discord);

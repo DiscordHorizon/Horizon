@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const { members } = require('./include/members');
 const { welcome } = require('./include/welcome');
+const { userConnection } = require('./controller/user');
 
 const bot = new Discord.Client();
 
@@ -35,11 +36,7 @@ bot.on('guildMemberRemove', user => {
 
 //* voice connection
 bot.on('voiceStateUpdate', (oldState, newState) => {
-    if(newState.channel != null) {
-        console.log('usuario entrou em um canal de voz');
-    } else {
-        console.log('usuario saiu de um canal de voz')
-    }
+    userConnection(newState);
 });
 
 bot.login(process.env.DISCORD_TOKEN);

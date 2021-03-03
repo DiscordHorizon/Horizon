@@ -42,8 +42,8 @@ module.exports = {
         ctx.lineWidth = 20;
         ctx.textAlign = 'center';
         ctx.font = '110px Sansita Swashed';
-        ctx.strokeText("Bem vindo(a) ao Exphare", 960, 750);
-        ctx.fillText("Bem vindo(a) ao Exphare", 960, 750);
+        ctx.strokeText("Bem vindo(a) ao Horizon!", 960, 750);
+        ctx.fillText("Bem vindo(a) ao Horizon!", 960, 750);
         ctx.font = '90px Sansita Swashed';
         ctx.strokeText(member.user.tag, 960, 900);
         ctx.fillText(member.user.tag, 960, 900);

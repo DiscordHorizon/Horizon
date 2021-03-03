@@ -52,7 +52,7 @@ module.exports = {
         channel.send(msg);
     },
     async newTask(message) {
-        const log = message.guild.channels.cache.get(process.env.TASKS_LOG);
+        const log = message.guild.channels.cache.get(process.env.LOG);
         const user = await userVerify(message.author.id);
 
         if (user.tasks.length > 14) {
@@ -73,7 +73,7 @@ module.exports = {
         }
     },
     async removeTask(message) {
-        const log = message.guild.channels.cache.get(process.env.TASKS_LOG);
+        const log = message.guild.channels.cache.get(process.env.LOG);
         const user = await userVerify(message.author.id);
 
         if (!user.tasks.length) {

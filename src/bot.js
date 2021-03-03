@@ -83,26 +83,28 @@ bot.on("message", (message) => {
 
 //* reaction role check
 bot.on("messageReactionAdd", async (reaction, user) => {
+    const messages = reaction.message.channel.messages.cache;
     const roles = reaction.message.guild.roles.cache;
     const members = reaction.message.guild.members.cache;
 
     if (reaction.partial) await reaction.fetch();
 
     //* add "Horizon" role
-    if (reaction.message.id === config.check.rules) {
+    if (messages.get(config.check.rules)) {
         const role = roles.find((role) => role.name === "Horizon");
         members.get(user.id).roles.add(role);
     }
 });
 
 bot.on("messageReactionRemove", async (reaction, user) => {
+    const messages = reaction.message.channel.messages.cache;
     const roles = reaction.message.guild.roles.cache;
     const members = reaction.message.guild.members.cache;
 
     if (reaction.partial) await reaction.fetch();
 
     //* remove "Horizon" role
-    if (reaction.message.id === config.check.rules) {
+    if (messages.get(config.check.rules)) {
         const role = roles.find((role) => role.name === "Horizon");
         members.get(user.id).roles.remove(role);
     }

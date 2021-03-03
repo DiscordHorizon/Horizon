@@ -1,5 +1,6 @@
 const userModel = require("../models/user");
 const { MessageEmbed } = require("discord.js");
+const { config } = require('../config');
 
 async function userVerify(userId) {
     const req = await userModel.findOne({ id: userId });
@@ -51,8 +52,8 @@ module.exports = {
         }
         channel.send(msg);
     },
-    async newTask(message) {
-        const log = message.guild.channels.cache.get(process.env.LOG);
+    async addTask(message) {
+        const log = message.guild.channels.cache.get(config.channels.tasks.log);
         const user = await userVerify(message.author.id);
 
         if (user.tasks.length > 14) {
@@ -73,7 +74,7 @@ module.exports = {
         }
     },
     async removeTask(message) {
-        const log = message.guild.channels.cache.get(process.env.LOG);
+        const log = message.guild.channels.cache.get(config.channels.tasks.log);
         const user = await userVerify(message.author.id);
 
         if (!user.tasks.length) {

@@ -97,7 +97,7 @@ bot.on("messageReactionAdd", async (reaction, user) => {
         members.get(user.id).roles.add(role);
     }
     //* "Tasks Verified" role
-    if (id === config.check.rules) {
+    if (id === config.check.tasks) {
         const role = roles.find((role) => role.name === "Tasks Verified");
         members.get(user.id).roles.add(role);
     }
@@ -132,7 +132,7 @@ bot.on("messageReactionRemove", async (reaction, user) => {
         members.get(user.id).roles.remove(role);
     }
     //* "Tasks Verified" role
-    if (id === config.check.rules) {
+    if (id === config.check.tasks) {
         const role = roles.find((role) => role.name === "Tasks Verified");
         members.get(user.id).roles.remove(role);
     }

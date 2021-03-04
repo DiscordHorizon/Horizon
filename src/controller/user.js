@@ -96,9 +96,12 @@ module.exports = {
         }
     },
     async addGame(user, game) {
-        const user = await userVerify(user.id);
+        const req = await userVerify(user.id);
+        if (!req.games.includes(game)) {
+            req.updateOne({ $push: { game: game }});
+        }
     },
     async removeGame(user, game) {
-        const user = await userVerify(user.id);
+        const req = await userVerify(user.id);
     }
 };

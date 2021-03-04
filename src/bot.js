@@ -95,23 +95,26 @@ bot.on("messageReactionAdd", async (reaction, user) => {
 
     //* "Horizon" role
     if (id === config.check.rules) {
-        const role = roles.find((role) => role.name === "Horizon member");
+        const role = roles.find((role) => role.name === "Horizon Member");
         members.get(user.id).roles.add(role);
     };
     //* "Valorant" role
     if (id === config.check.games.valorant) {
         const role = roles.find((role) => role.name === "Valorant");
         members.get(user.id).roles.add(role);
+        addGame(user, "Valorant");
     };
     //* "League of Legends" role
     if (id === config.check.games.leagueoflegends) {
         const role = roles.find((role) => role.name === "League of Legends");
         members.get(user.id).roles.add(role);
+        addGame(user, "League of Legends");
     };
     //* "Ragnarok" role
     if (id === config.check.games.ragnarok) {
         const role = roles.find((role) => role.name === "Ragnarok");
         members.get(user.id).roles.add(role);
+        addGame(user, "Ragnarok");
     };
 });
 
@@ -125,23 +128,26 @@ bot.on("messageReactionRemove", async (reaction, user) => {
 
     //* "Horizon" role
     if (reaction.message.id === config.check.rules) {
-        const role = roles.find((role) => role.name === "Horizon member");
+        const role = roles.find((role) => role.name === "Horizon Member");
         members.get(user.id).roles.remove(role);
     };
     //* "Valorant" role
     if (id === config.check.games.valorant) {
         const role = roles.find((role) => role.name === "Valorant");
         members.get(user.id).roles.remove(role);
+        removeGame(user, "Valorant");
     };
     //* "League of Legends" role
     if (id === config.check.games.leagueoflegends) {
         const role = roles.find((role) => role.name === "League of Legends");
         members.get(user.id).roles.remove(role);
+        removeGame(user, "League of Legends");
     };
     //* "Ragnarok" role
     if (id === config.check.games.ragnarok) {
         const role = roles.find((role) => role.name === "Ragnarok");
         members.get(user.id).roles.remove(role);
+        removeGame(user, "Ragnarok");
     };
 });
 

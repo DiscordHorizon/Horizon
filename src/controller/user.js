@@ -96,9 +96,9 @@ module.exports = {
         }
     },
     async addGame(user, game) {
-
+        const user = await userVerify(user.id);
     },
     async removeGame(user, game) {
-        
+        const user = await userVerify(user.id);
     }
 };

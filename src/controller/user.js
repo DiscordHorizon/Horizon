@@ -11,6 +11,7 @@ async function userVerify(userId) {
             lastConnection: Date.now(),
             accumulatedTime: 0,
             tasks: Array,
+            games: Array
         });
         await newUser.save();
     }

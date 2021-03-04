@@ -91,9 +91,14 @@ bot.on("messageReactionAdd", async (reaction, user) => {
 
     if (reaction.partial) await reaction.fetch();
 
-    //* "Horizon" role
+    //* "Horizon Member" role
     if (id === config.check.rules) {
         const role = roles.find((role) => role.name === "Horizon Member");
+        members.get(user.id).roles.add(role);
+    }
+    //* "Tasks Verified" role
+    if (id === config.check.rules) {
+        const role = roles.find((role) => role.name === "Tasks Verified");
         members.get(user.id).roles.add(role);
     }
     //* "Valorant" role
@@ -121,9 +126,14 @@ bot.on("messageReactionRemove", async (reaction, user) => {
 
     if (reaction.partial) await reaction.fetch();
 
-    //* "Horizon" role
+    //* "Horizon Member" role
     if (reaction.message.id === config.check.rules) {
         const role = roles.find((role) => role.name === "Horizon Member");
+        members.get(user.id).roles.remove(role);
+    }
+    //* "Tasks Verified" role
+    if (id === config.check.rules) {
+        const role = roles.find((role) => role.name === "Tasks Verified");
         members.get(user.id).roles.remove(role);
     }
     //* "Valorant" role

@@ -1,6 +1,6 @@
 const userModel = require("../models/user");
 const { MessageEmbed } = require("discord.js");
-const { config } = require('../config');
+const { config } = require("../config");
 
 async function userVerify(userId) {
     const req = await userModel.findOne({ id: userId });
@@ -11,7 +11,6 @@ async function userVerify(userId) {
             lastConnection: Date.now(),
             accumulatedTime: 0,
             tasks: Array,
-            games: Array
         });
         await newUser.save();
     }
@@ -95,16 +94,4 @@ module.exports = {
             }
         }
     },
-    async addGame(user, game) {
-        const req = await userVerify(user.id);
-        if (!req.games.includes(game)) {
-            await req.updateOne({ $push: { games: game }});
-        }
-    },
-    async removeGame(user, game) {
-        const req = await userVerify(user.id);
-        if (req.games.includes(game)) {
-            await req.updateOne({ $pull: { games: game }});
-        }
-    }
 };

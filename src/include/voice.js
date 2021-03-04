@@ -9,6 +9,7 @@ module.exports = {
 
         if (newChannel) {
             const channel = newState.guild.channels.cache.get(newChannel);
+            const lastChannel = oldState.guild.channels.cache.get(oldChannel);
 
             //* add voice channel role
             const voiceRole = newState.guild.roles.cache.find(
@@ -18,9 +19,6 @@ module.exports = {
 
             //* remove last voice channel role
             if (oldChannel) {
-                const lastChannel = oldState.guild.channels.channelID.get(
-                    oldChannel
-                );
                 const lastVoiceRole = newState.guild.roles.cache.find(
                     (roles) => roles.name === lastChannel.name
                 );

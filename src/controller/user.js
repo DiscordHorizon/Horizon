@@ -98,10 +98,13 @@ module.exports = {
     async addGame(user, game) {
         const req = await userVerify(user.id);
         if (!req.games.includes(game)) {
-            req.updateOne({ $push: { game: game }});
+            await req.updateOne({ $push: { games: game }});
         }
     },
     async removeGame(user, game) {
         const req = await userVerify(user.id);
+        if (req.games.includes(game)) {
+            await req.updateOne({ $pull: { games: game }});
+        }
     }
 };

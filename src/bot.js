@@ -8,6 +8,8 @@ const {
     showTasks,
     addTask,
     removeTask,
+    addGame,
+    removeGame
 } = require("./controller/user");
 
 const bot = new Discord.Client({

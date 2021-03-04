@@ -21,7 +21,7 @@ async function botPresence() {
     if (presence === false) {
         await bot.user.setPresence({
             activity: {
-                name: `${bot.users.cache.size} membros no servidor.`,
+                name: `${bot.guilds.cache.get(config.channels.guild).memberCount} Horizon Members.`,
                 type: 1,
                 url: "https://twitch.tv/bravanzin",
             },

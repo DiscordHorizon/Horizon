@@ -95,4 +95,10 @@ module.exports = {
             }
         }
     },
+    async addGame(user, game) {
+
+    },
+    async removeGame(user, game) {
+        
+    }
 };

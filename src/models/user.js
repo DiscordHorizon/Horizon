@@ -4,7 +4,8 @@ const User = Schema({
     id: String,
     lastConnection: Number,
     accumulatedTime: Number,
-    tasks: Array
+    tasks: Array,
+    games: Array
 });
 
 module.exports = model("User", User);

@@ -1,6 +1,5 @@
-const userModel = require('../models');
+const userModel = require('../models/user');
 const { config } = require('../config');
-const { findOne } = require('../models/user');
 
 module.exports = {
     async voiceRole(oldState, newState) {
@@ -59,7 +58,7 @@ module.exports = {
             };
 
         } else {
-            const req = await findOne({ id: oldState.id });
+            const req = await userModel.findOne({ id: oldState.id });
             const channel = oldState.guild.channels.cache.get(oldChannel);
             
             //* remove voice channel role
@@ -72,7 +71,12 @@ module.exports = {
             user.roles.add(horizon);
 
             //* game role
-            
+            req.games.forEach(game => {
+                const role = oldState.guild.roles.cache.find(
+                    roles => roles.name === game
+                );
+                user.roles.add(role);
+            });
         }
     }
 }

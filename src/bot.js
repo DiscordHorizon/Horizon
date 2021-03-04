@@ -1,15 +1,13 @@
 const Discord = require("discord.js");
 const { config } = require("./config");
 const { users } = require("./include/users");
-const { voiceRole } = require('./include/voice');
+const { voiceRole } = require("./include/voice");
 const { welcome } = require("./include/welcome");
 const {
     userConnection,
     showTasks,
     addTask,
     removeTask,
-    addGame,
-    removeGame
 } = require("./controller/user");
 
 const bot = new Discord.Client({
@@ -97,25 +95,22 @@ bot.on("messageReactionAdd", async (reaction, user) => {
     if (id === config.check.rules) {
         const role = roles.find((role) => role.name === "Horizon Member");
         members.get(user.id).roles.add(role);
-    };
+    }
     //* "Valorant" role
     if (id === config.check.games.valorant) {
         const role = roles.find((role) => role.name === "Valorant");
         members.get(user.id).roles.add(role);
-        addGame(user, "Valorant");
-    };
+    }
     //* "League of Legends" role
     if (id === config.check.games.leagueoflegends) {
         const role = roles.find((role) => role.name === "League of Legends");
         members.get(user.id).roles.add(role);
-        addGame(user, "League of Legends");
-    };
+    }
     //* "Ragnarok" role
     if (id === config.check.games.ragnarok) {
         const role = roles.find((role) => role.name === "Ragnarok");
         members.get(user.id).roles.add(role);
-        addGame(user, "Ragnarok");
-    };
+    }
 });
 
 //* reaction remove role check
@@ -130,25 +125,22 @@ bot.on("messageReactionRemove", async (reaction, user) => {
     if (reaction.message.id === config.check.rules) {
         const role = roles.find((role) => role.name === "Horizon Member");
         members.get(user.id).roles.remove(role);
-    };
+    }
     //* "Valorant" role
     if (id === config.check.games.valorant) {
         const role = roles.find((role) => role.name === "Valorant");
         members.get(user.id).roles.remove(role);
-        removeGame(user, "Valorant");
-    };
+    }
     //* "League of Legends" role
     if (id === config.check.games.leagueoflegends) {
         const role = roles.find((role) => role.name === "League of Legends");
         members.get(user.id).roles.remove(role);
-        removeGame(user, "League of Legends");
-    };
+    }
     //* "Ragnarok" role
     if (id === config.check.games.ragnarok) {
         const role = roles.find((role) => role.name === "Ragnarok");
         members.get(user.id).roles.remove(role);
-        removeGame(user, "Ragnarok");
-    };
+    }
 });
 
 bot.login(config.tokens.discord);

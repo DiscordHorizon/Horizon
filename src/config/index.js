@@ -10,11 +10,6 @@ exports.config = {
         discord: config ? config.discord : process.env.DISCORD_TOKEN,
         mongoUri: config ? config.mongo : process.env.MONGO_URI,
     },
-    categorys: {
-        valorant: config ? config.categorys.valorant : process.env.P_VALORANT,
-        leagueoflegends: config ? config.categorys.leagueoflegends : process.env.P_LEAGUEOFLEGENDS,
-        ragnarok : config ? config.categorys.ragnarok : process.env.P_RAGNAROK
-    },
     channels: {
         guild: config ? config.channels.guild : process.env.GUILD,
         users: config ? config.channels.users : process.env.USERS,
@@ -29,6 +24,7 @@ exports.config = {
     },
     check: {
         rules: config ? config.check.rules : process.env.C_RULES,
+        tasks: config ? config.check.tasks : process.env.C_TASKS,
         games: {
             valorant: config ? config.games.valorant : process.env.C_VALORANT,
             leagueoflegends: config

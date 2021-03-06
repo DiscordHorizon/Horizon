@@ -1,6 +1,28 @@
 const userModel = require("../models/user");
 const { config } = require("../config");
 
+async function removeHorizonRoles(user, roles, ) {
+    config.rolesArray.forEach((roleConfig) => {
+        user._roles.forEach((roleId) => {
+            const role = roles.find((roles) => roles.id === roleId);
+            if (role.id === roleConfig) {
+                user.roles.remove(role);
+            }
+        });
+    });
+};
+
+async function addHorizonRole(user, userRoles, ) {
+    const roles = config.roles.reverse();
+    var roleLevel;
+
+    roles.forEach(role => {
+        if (user.level >= role.level) {
+            roleLevel = role;
+        }
+    });
+}
+
 module.exports = {
     async setLevel(user, roles) {
         const req = await userModel.findOne({ id: user.id });
@@ -19,14 +41,7 @@ module.exports = {
         user.roles.add(level);
 
         //* update horizon role
-        config.rolesArray.forEach((roleConfig) => {
-            user._roles.forEach((roleId) => {
-                const role = roles.find((roles) => roles.id === roleId);
-                if (role.id === roleConfig) {
-                    user.roles.remove(role);
-                }
-            });
-        });
+        addHorizonRole(req, roles);
 
         //* heaven
         if (req.level === 99) {

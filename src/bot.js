@@ -53,9 +53,6 @@ bot.on("ready", async () => {
 
 //* member count update
 bot.on("guildMemberAdd", (user) => {
-    const level = user.guild.roles.cache.find(roles => roles.name === "level 1");
-    user.roles.add(level);
-    
     users(user.guild);
     welcome(user);
 });
@@ -75,7 +72,7 @@ bot.on("message", (message) => {
     const id = message.channel.id;
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;
-
+    
     //* tasks
     if (id === config.channels.tasks.tasks) {
         showTasks(message);
@@ -91,12 +88,14 @@ bot.on("messageReactionAdd", async (reaction, user) => {
     const id = reaction.message.id;
     const roles = reaction.message.guild.roles.cache;
     const members = reaction.message.guild.members.cache;
-
+    
     if (reaction.partial) await reaction.fetch();
-
+    
     //* "Horizon Member" role
     if (id === config.check.rules) {
         const role = roles.find((role) => role.name === "Horizon Member");
+        const level = roles.find(roles => roles.name === "level 1");
+        members.get(user.id).roles.add(level);
         members.get(user.id).roles.add(role);
     }
     //* "Tasks Verified" role

@@ -23,13 +23,12 @@ async function userVerify(userId) {
 async function updateLevel(id) {
     const expTable = await levelsModel.findOne({ name: "Exp Table" });
     const user = await userModel.findOne({ id: id });
-    var userLevel = 0;
+    var userLevel = 1;
     expTable.expTable.forEach(level => {
-        if (user.level >= level.exp) {
+        if (user.accumulatedTime >= level.exp) {
             userLevel = level;
         }
     });
-    console.log(userLevel);
 }
 
 module.exports = {

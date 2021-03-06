@@ -8,6 +8,7 @@ async function userVerify(userId) {
     if (!req) {
         const newUser = new userModel({
             id: userId,
+            level: 1,
             lastConnection: Date.now(),
             accumulatedTime: 0,
             tasks: Array,

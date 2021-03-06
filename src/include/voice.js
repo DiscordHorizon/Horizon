@@ -1,3 +1,5 @@
+const { setLevel } = require('./level');
+
 module.exports = {
     async voiceRole(oldState, newState) {
         //* user
@@ -32,6 +34,7 @@ module.exports = {
                 (roles) => roles.name === channel.name
             );
             user.roles.remove(voiceRole);
+            setLevel(user, oldState.guild.roles.cache);
         }
     },
 };

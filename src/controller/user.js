@@ -29,6 +29,7 @@ async function updateLevel(id) {
             userLevel = level.level;
         }
     });
+    await user.updateOne({ level: userLevel });
 }
 
 module.exports = {

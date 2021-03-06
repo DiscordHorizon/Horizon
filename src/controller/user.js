@@ -1,4 +1,5 @@
 const userModel = require("../models/user");
+const levelsModel = require("../models/levels");
 const { MessageEmbed } = require("discord.js");
 const { config } = require("../config");
 
@@ -19,6 +20,18 @@ async function userVerify(userId) {
     return (user = await userModel.findOne({ id: userId }));
 }
 
+async function updateLevel(id) {
+    const expTable = await levelsModel.findOne({ name: "Exp Table" });
+    const user = await userModel.findOne({ id: id });
+    var userLevel = 0;
+    expTable.expTable.forEach(level => {
+        if (user.level >= level.exp) {
+            userLevel = level;
+        }
+    });
+    console.log(userLevel);
+}
+
 module.exports = {
     async userConnection(state) {
         const user = await userVerify(state.id);
@@ -31,6 +44,7 @@ module.exports = {
             await user.updateOne({
                 accumulatedTime: user.accumulatedTime + time,
             });
+            updateLevel(state.id);
         }
     },
     async showTasks(message) {

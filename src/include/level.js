@@ -13,7 +13,7 @@ async function removeHorizonRoles(user, roles, ) {
 };
 
 async function addHorizonRole(user, userRoles, ) {
-    const roles = config.roles.reverse();
+    const roles = config.roles;
     var roleLevel;
 
     roles.forEach(role => {
@@ -43,6 +43,7 @@ module.exports = {
         //* update horizon role
         addHorizonRole(req, roles);
 
+        /*
         //* heaven
         if (req.level === 99) {
             const role = roles.find(
@@ -147,6 +148,6 @@ module.exports = {
                 (roles) => roles.id === config.rolesIds.arriving
             );
             user.roles.add(role);
-        }
+        }*/
     },
 };

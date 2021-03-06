@@ -26,7 +26,7 @@ async function updateLevel(id) {
     var userLevel = 1;
     expTable.expTable.forEach(level => {
         if (user.accumulatedTime >= level.exp) {
-            userLevel = level;
+            userLevel = level.level;
         }
     });
 }

@@ -33,83 +33,66 @@ exports.config = {
             ragnarok: config ? config.games.ragnarok : process.env.C_RAGNAROK,
         },
     },
-    rolesIds: {
-        heaven: {
+    roles: [
+        heaven = {
             level: 99,
             id: config ? config.roles.heaven : process.env.R_HEAVEN,
         },
-        clouds: {
+        clouds = {
             level: 96,
             id: config ? config.roles.clouds : process.env.R_CLOUDS,
         },
-        snow: {
+        snow = {
             level: 91,
             id: config ? config.roles.snow : process.env.R_SNOW,
         },
-        icePeaks: {
+        icePeaks = {
             level: 86,
             id: config ? config.roles.icePeaks : process.env.R_ICE_PEAKS,
         },
-        fishs: {
+        fishs = {
             level: 81,
             id: config ? config.roles.fishs : process.env.R_FISHS,
         },
-        seas: {
+        seas = {
             level: 76,
             id: config ? config.roles.seas : process.env.R_SEAS,
         },
-        lights: {
+        lights = {
             level: 71,
             id: config ? config.roles.lights : process.env.R_LIGHTS,
         },
-        rainbows: {
+        rainbows = {
             level: 66,
             id: config ? config.roles.rainbows : process.env.R_RAINBOWS,
         },
-        vulcans: {
+        vulcans = {
             level: 56,
             id: config ? config.roles.vulcans : process.env.R_VULCANS,
         },
-        shinyStones: {
+        shinyStones = {
             level: 46,
             id: config ? config.roles.shinyStones : process.env.R_SHINY_STONES,
         },
-        stones: {
+        stones = {
             level: 36,
             id: config ? config.roles.stones : process.env.R_STONES,
         },
-        rivers: {
+        rivers = {
             level: 26,
             id: config ? config.roles.rivers : process.env.R_RIVERS,
         },
-        flowers: {
+        flowers = {
             level: 16,
             id: config ? config.roles.flowers : process.env.R_FLOWERS,
         },
-        trees: {
+        trees = {
             level: 6,
             id: config ? config.roles.trees : process.env.R_TREES,
         },
-        arriving: {
+        arriving = {
             level: 1,
             id: config ? config.roles.arriving : process.env.R_ARRIVING,
         },
-    },
-    rolesArray: [
-        config ? config.roles.heaven : process.env.R_HEAVEN,
-        config ? config.roles.clouds : process.env.R_CLOUDS,
-        config ? config.roles.snow : process.env.R_SNOW,
-        config ? config.roles.icePeaks : process.env.R_ICE_PEAKS,
-        config ? config.roles.fishs : process.env.R_FISHS,
-        config ? config.roles.seas : process.env.R_SEAS,
-        config ? config.roles.lights : process.env.R_LIGHTS,
-        config ? config.roles.rainbows : process.env.R_RAINBOWS,
-        config ? config.roles.vulcans : process.env.R_VULCANS,
-        config ? config.roles.shinyStones : process.env.R_SHINY_STONES,
-        config ? config.roles.stones : process.env.R_STONES,
-        config ? config.roles.rivers : process.env.R_RIVERS,
-        config ? config.roles.flowers : process.env.R_FLOWERS,
-        config ? config.roles.trees : process.env.R_TREES,
-        config ? config.roles.arriving : process.env.R_ARRIVING,
     ],
 };

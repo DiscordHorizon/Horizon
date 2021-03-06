@@ -53,6 +53,9 @@ bot.on("ready", async () => {
 
 //* member count update
 bot.on("guildMemberAdd", (user) => {
+    const level = user.guild.roles.cache.find(roles => roles.name === "level 1");
+    user.roles.add(level);
+    
     users(user.guild);
     welcome(user);
 });

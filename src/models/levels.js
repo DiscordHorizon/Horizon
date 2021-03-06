@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const Levels = Schema({
     name: String,
-    exp: Array
+    expTable: Array
 });
 
 module.exports = model("Levels", Levels);

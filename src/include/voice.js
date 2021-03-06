@@ -5,6 +5,9 @@ module.exports = {
         //* user
         const user = newState.guild.members.cache.get(newState.id);
 
+        //* check bot
+        if (user.user.bot) return;
+
         //* channels
         const oldChannel = oldState.channelID;
         const newChannel = newState.channelID;

@@ -28,71 +28,71 @@ exports.config = {
         games: {
             valorant: config ? config.games.valorant : process.env.C_VALORANT,
             leagueoflegends: config
-            ? config.games.leagueoflegends
-            : process.env.C_LEAGUEOFLEGENDS,
+                ? config.games.leagueoflegends
+                : process.env.C_LEAGUEOFLEGENDS,
             ragnarok: config ? config.games.ragnarok : process.env.C_RAGNAROK,
         },
     },
     roles: [
-        arriving = {
-            level: 1,
-            id: config ? config.roles.arriving : process.env.R_ARRIVING,
-        },
-        trees = {
-            level: 6,
-            id: config ? config.roles.trees : process.env.R_TREES,
-        },
-        flowers = {
-            level: 16,
-            id: config ? config.roles.flowers : process.env.R_FLOWERS,
-        },
-        rivers = {
-            level: 26,
-            id: config ? config.roles.rivers : process.env.R_RIVERS,
-        },
-        stones = {
-            level: 36,
-            id: config ? config.roles.stones : process.env.R_STONES,
-        },
-        shinyStones = {
-            level: 46,
-            id: config ? config.roles.shinyStones : process.env.R_SHINY_STONES,
-        },
-        vulcans = {
-            level: 56,
-            id: config ? config.roles.vulcans : process.env.R_VULCANS,
-        },
-        rainbows = {
-            level: 66,
-            id: config ? config.roles.rainbows : process.env.R_RAINBOWS,
-        },
-        lights = {
-            level: 71,
-            id: config ? config.roles.lights : process.env.R_LIGHTS,
-        },
-        seas = {
-            level: 76,
-            id: config ? config.roles.seas : process.env.R_SEAS,
-        },
-        fishs = {
-            level: 81,
-            id: config ? config.roles.fishs : process.env.R_FISHS,
-        },
-        icePeaks = {
-            level: 86,
-            id: config ? config.roles.icePeaks : process.env.R_ICE_PEAKS,
-        },
-        snow = {
-            level: 91,
-            id: config ? config.roles.snow : process.env.R_SNOW,
+        heaven = {
+            level: 99,
+            id: config ? config.roles.heaven : process.env.R_HEAVEN,
         },
         clouds = {
             level: 96,
             id: config ? config.roles.clouds : process.env.R_CLOUDS,
         },
-        heaven = {
-            level: 99,
-            id: config ? config.roles.heaven : process.env.R_HEAVEN,
+        snow = {
+            level: 91,
+            id: config ? config.roles.snow : process.env.R_SNOW,
+        },
+        icePeaks = {
+            level: 86,
+            id: config ? config.roles.icePeaks : process.env.R_ICE_PEAKS,
+        },
+        fishs = {
+            level: 81,
+            id: config ? config.roles.fishs : process.env.R_FISHS,
+        },
+        seas = {
+            level: 76,
+            id: config ? config.roles.seas : process.env.R_SEAS,
+        },
+        lights = {
+            level: 71,
+            id: config ? config.roles.lights : process.env.R_LIGHTS,
+        },
+        rainbows = {
+            level: 66,
+            id: config ? config.roles.rainbows : process.env.R_RAINBOWS,
+        },
+        vulcans = {
+            level: 56,
+            id: config ? config.roles.vulcans : process.env.R_VULCANS,
+        },
+        shinyStones = {
+            level: 46,
+            id: config ? config.roles.shinyStones : process.env.R_SHINY_STONES,
+        },
+        stones = {
+            level: 36,
+            id: config ? config.roles.stones : process.env.R_STONES,
+        },
+        rivers = {
+            level: 26,
+            id: config ? config.roles.rivers : process.env.R_RIVERS,
+        },
+        flowers = {
+            level: 16,
+            id: config ? config.roles.flowers : process.env.R_FLOWERS,
+        },
+        trees = {
+            level: 6,
+            id: config ? config.roles.trees : process.env.R_TREES,
+        },
+        arriving = {
+            level: 1,
+            id: config ? config.roles.arriving : process.env.R_ARRIVING,
         },
     ],
 };

@@ -22,7 +22,7 @@ module.exports = {
         config.rolesArray.forEach((roleConfig) => {
             user._roles.forEach((roleId) => {
                 const role = roles.find((roles) => roles.id === roleId);
-                if (role.id === roleConfig.id) {
+                if (role.id === roleConfig) {
                     user.roles.remove(role);
                 }
             });

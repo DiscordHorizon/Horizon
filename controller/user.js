@@ -1,7 +1,6 @@
 const userModel = require("../models/user");
-const levelsModel = require("../models/levels");
 const { MessageEmbed } = require("discord.js");
-const { config } = require("../config");
+const { tasks } = require("../utils/horizonUtils");
 
 async function userVerify(userId) {
     const req = await userModel.findOne({ id: userId });
@@ -20,33 +19,7 @@ async function userVerify(userId) {
     return (user = await userModel.findOne({ id: userId }));
 }
 
-async function updateLevel(id) {
-    const expTable = await levelsModel.findOne({ name: "Exp Table" });
-    const user = await userModel.findOne({ id: id });
-    var userLevel = 1;
-    expTable.expTable.forEach(level => {
-        if (user.accumulatedTime >= level.exp) {
-            userLevel = level.level;
-        }
-    });
-    await user.updateOne({ level: userLevel });
-}
-
 module.exports = {
-    async userConnection(state) {
-        const user = await userVerify(state.id);
-        var time;
-
-        if (state.channelID) {
-            await user.updateOne({ lastConnection: Date.now() });
-        } else {
-            time = Date.now() - user.lastConnection;
-            await user.updateOne({
-                accumulatedTime: user.accumulatedTime + time,
-            });
-            updateLevel(state.id);
-        }
-    },
     async showTasks(message) {
         const channel = message.channel;
         const user = await userVerify(message.author.id);
@@ -68,7 +41,7 @@ module.exports = {
         channel.send(msg);
     },
     async addTask(message) {
-        const log = message.guild.channels.cache.get(config.channels.tasks.log);
+        const log = message.guild.channels.cache.get(tasks.log);
         const user = await userVerify(message.author.id);
         const txt = message.content.toLowerCase();
 
@@ -90,7 +63,7 @@ module.exports = {
         }
     },
     async removeTask(message) {
-        const log = message.guild.channels.cache.get(config.channels.tasks.log);
+        const log = message.guild.channels.cache.get(tasks.log);
         const user = await userVerify(message.author.id);
         const txt = message.content.toLowerCase();
 

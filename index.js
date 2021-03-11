@@ -7,6 +7,9 @@ const {
     removeTask,
 } = require("./controller/user");
 
+require('./server');
+require('./database');
+
 const bot = new Discord.Client();
 
 //* dynamic presence

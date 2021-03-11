@@ -7,6 +7,7 @@ try {
 
 exports.discord = config ? config.discord : process.env.DISCORD;
 exports.mongoUri = config ? config.mongo : process.env.MONGO_URI;
+exports.users = config ? config.users : process.env.USERS;
 exports.tasks = {
     log: config ? config.channels.tasks.log : process.env.LOG,
     tasks: config ? config.channels.tasks.tasks : process.env.TASKS,

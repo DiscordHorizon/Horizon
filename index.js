@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { config } = require("./config");
+const { discord, guild, tasks } = require('./utils/horizonUtils');
 const { users } = require("./include/users");
 const {
     showTasks,
@@ -16,7 +16,7 @@ async function botPresence() {
     if (presence === false) {
         await bot.user.setPresence({
             activity: {
-                name: `${bot.guilds.cache.get(config.channels.guild).memberCount} Horizon Members.`,
+                name: `${bot.guilds.cache.get(guild).memberCount} Horizon Members.`,
                 type: 1,
                 url: "https://twitch.tv/bravanzin",
             },
@@ -42,7 +42,7 @@ bot.on("ready", async () => {
             url: "https://twitch.tv/bravanzin",
         },
     });
-    users(bot.guilds.cache.get(config.channels.guild));
+    users(bot.guilds.cache.get(guild));
     console.log("[Bot] Connected");
 });
 
@@ -62,13 +62,13 @@ bot.on("message", (message) => {
     if (message.channel.type === "dm") return;
     
     //* tasks
-    if (id === config.channels.tasks.tasks) {
+    if (id === tasks.tasks) {
         showTasks(message);
-    } else if (id === config.channels.tasks.add) {
+    } else if (id === tasks.add) {
         addTask(message);
-    } else if (id === config.channels.tasks.remove) {
+    } else if (id === tasks.remove) {
         removeTask(message);
     }
 });
 
-bot.login(config.tokens.discord);
+bot.login(discord);

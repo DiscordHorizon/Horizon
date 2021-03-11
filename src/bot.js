@@ -1,10 +1,7 @@
 const Discord = require("discord.js");
 const { config } = require("./config");
 const { users } = require("./include/users");
-const { voiceRole } = require("./include/voice");
-const { welcome } = require("./include/welcome");
 const {
-    userConnection,
     showTasks,
     addTask,
     removeTask,
@@ -54,7 +51,6 @@ bot.on("ready", async () => {
 //* member count update
 bot.on("guildMemberAdd", (user) => {
     users(user.guild);
-    welcome(user);
 });
 
 bot.on("guildMemberRemove", (user) => {

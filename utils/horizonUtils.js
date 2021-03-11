@@ -10,8 +10,8 @@ exports.mongoUri = config ? config.mongo : process.env.MONGO_URI;
 exports.guild = config ? config.guild : process.env.GUILD;
 exports.users = config ? config.users : process.env.USERS;
 exports.tasks = {
-    log: config ? config.channels.tasks.log : process.env.LOG,
-    tasks: config ? config.channels.tasks.tasks : process.env.TASKS,
-    add: config ? config.channels.tasks.add : process.env.ADD,
-    remove: config ? config.channels.tasks.remove : process.env.REMOVE,
+    log: config ? config.tasks.log : process.env.LOG,
+    tasks: config ? config.tasks.tasks : process.env.TASKS,
+    add: config ? config.tasks.add : process.env.ADD,
+    remove: config ? config.tasks.remove : process.env.REMOVE,
 };

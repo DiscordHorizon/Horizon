@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
-const { config } = require('../config');
+const { mongoUri } = require("../utils/horizonUtils");
 
 mongoose
-    .connect(config.tokens.mongoUri, {
+    .connect(mongoUri, {
         useUnifiedTopology: true,
         useNewUrlParser: true,
         useFindAndModify: false,
     })
-    .then(console.log("[Database] connected"))
-    .catch((err) => console.log(err));
+    .then(console.log("[Database] connected"));

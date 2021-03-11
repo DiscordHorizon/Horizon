@@ -61,12 +61,6 @@ bot.on("guildMemberRemove", (user) => {
     users(user.guild);
 });
 
-//* voice connection
-bot.on("voiceStateUpdate", (oldState, newState) => {
-    voiceRole(oldState, newState);
-    userConnection(newState);
-});
-
 //* messages
 bot.on("message", (message) => {
     const id = message.channel.id;

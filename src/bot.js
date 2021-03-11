@@ -7,9 +7,7 @@ const {
     removeTask,
 } = require("./controller/user");
 
-const bot = new Discord.Client({
-    partials: ["MESSAGE", "CHANNEL", "REACTION"],
-});
+const bot = new Discord.Client();
 
 //* dynamic presence
 let presence = false;

@@ -1,1 +1,3 @@
 # Horizon
+
+Discord server

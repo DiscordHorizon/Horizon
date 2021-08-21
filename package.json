@@ -11,7 +11,8 @@
   "author": "Matheus Ishiyama <matheus.ishiyama@outlook.com>",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^13.1.0"
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12",
